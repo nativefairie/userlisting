@@ -22,7 +22,7 @@ This contains a Drupal module that integrates with a third-party API to fetch an
 
 1. Install this in a fully functional Drupal environment using composer:
 
-       $composer require nativefairie/userlisting
+       $composer require nativefairie/userlisting:*@dev
 2. Enable the module:
 
        $drush en userlisting
@@ -34,3 +34,5 @@ This contains a Drupal module that integrates with a third-party API to fetch an
 5. Now, check out the result on the page where the block was placed.
 6. Further, the users locally have a **"status"** flag that allows the admin to filter through the list of users, which will be reflected in the block listing.
 7. To alter that, go to *"/admin/content/dummyuser"* and press the button *"edit"*. Toggle the status checkbox and notice upon refresh the block is updated accordingly.
+
+*NOTE: When uninstalling the modules the entities created are not automatically removed using the hook_module_preuninstall() which is implemented in userlisting.module, this could be an improvement. Instead navigate to "/admin/modules/uninstall/entity/dummyuser" and remove them.*
