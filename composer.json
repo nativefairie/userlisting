@@ -4,6 +4,7 @@
     "type": "drupal-module",
     "license": "GPL-2.0-or-later",
     "require": {
+        "php": ">=8",
         "composer/installers": "^2.0"
     },
     "autoload": {
