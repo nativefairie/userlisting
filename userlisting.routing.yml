@@ -1,0 +1,7 @@
+entity.dummyuser.edit_form:
+  path: '/admin/content/dummyuser/{dummyuser}/edit'
+  defaults:
+    _entity_form: 'dummyuser.edit'
+    _title_callback: '\Drupal\Core\Entity\Controller\EntityController::title'
+  requirements:
+    _permission: 'administer blocks'

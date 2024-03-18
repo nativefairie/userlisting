@@ -1,0 +1,46 @@
+/*
+ * @file
+ * Contains \Drupal\userlisting\css\userlist.css.
+ *
+ * Dummy style for the userlist cards container.
+ */
+
+/* Todo: Use a preprocessor such as SASS or LESS and refactor accordingly */
+.userlist-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Style for individual userlist card */
+.userlist-card {
+  width: calc(33.33% - 20px); /* Max 3 cards per row with spacing */
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9; /* Milky white background */
+}
+
+/* Style for userlist avatar */
+.userlist-avatar img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+/* Style for userlist details */
+.userlist-details {
+  margin-top: 10px;
+}
+
+/* Style for userlist label */
+.userlist-label {
+  font-weight: bold;
+}
+
+/* Style for userlist email, first name, and last name */
+.userlist-email,
+.userlist-fname,
+.userlist-lname {
+  margin-left: 5px;
+}

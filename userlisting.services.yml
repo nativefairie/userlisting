@@ -1,0 +1,26 @@
+services:
+  logger.channel.userlisting:
+    parent: logger.channel_base
+    arguments: [ 'userlisting' ]
+
+  userlist.user_api_client:
+    class: Drupal\userlisting\UserApiClient
+    arguments: ['@http_client', '@logger.channel.userlisting']
+    tags:
+      - { name: http_client_factory_service }
+
+  userlisting.dummy_user_repository:
+    class: Drupal\userlisting\Repository\DummyUserRepository
+    arguments: ['@entity_type.manager', '@userlist.user_api_client', '@logger.channel.userlisting']
+
+  userlisting.event_subscriber:
+    class: Drupal\userlisting\EventSubscriber\DummyUserEventSubscriber
+    arguments: ['@userlisting.dummy_user_repository', '@logger.channel.userlisting']
+    tags:
+      - { name: event_subscriber }
+
+  userlisting.user_listing_block:
+    class: Drupal\userlisting\Plugin\Block\UserListingBlock
+    arguments: ['@config.factory', '@entity_type.manager', '@event_dispatcher', '@pager.manager', '@logger.channel.userlisting']
+    tags:
+      - { name: block }

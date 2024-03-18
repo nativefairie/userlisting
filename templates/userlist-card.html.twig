@@ -1,0 +1,27 @@
+{#
+/**
+ * @file
+ * Theme template for the User Card.
+ *
+ * Available variables:
+ * - user: A user from users array.
+ * - labels: The user-configured labels
+ *
+ * @see \Drupal\userlisting\Plugin\Block\UserListingBlock
+ */
+#}
+{# ToDo: different classes naming using BEM or SMACSS + use Drupal legacy block classes #}
+<div class="userlist-card">
+  {% if user.avatar %}
+    <div class="userlist-avatar">
+      <img src="{{ file_url(user.avatar.value) }}" alt="Avatar">
+    </div>
+  {% endif %}
+  <div class="userlist-details">
+    <div class="userlist-info">
+      <span class="userlist-label">{{ labels.email }}</span> <span class="userlist-email">{{ user.email.value }}</span><br>
+      <span class="userlist-label">{{ labels.first_name }}</span> <span class="userlist-fname">{{ user.first_name.value }}</span>
+      <span class="userlist-label">{{ labels.last_name }}</span> <span class="userlist-lname">{{ user.last_name.value }}</span>
+    </div>
+  </div>
+</div>

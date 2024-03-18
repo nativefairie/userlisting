@@ -1,0 +1,59 @@
+<?php
+
+/**
+ * @file
+ * Contains hooks and functions related to the User Listing module.
+ */
+
+use Drupal\block\Entity\Block;
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function userlisting_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.userlisting':
+      return '<p>' . t('Displays a block listing users from ReqRes dummy API.') . '</p>';
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function userlisting_theme() {
+  return [
+    'userlist' => [
+      'variables' => [
+        'results' => [],
+        'labels' => [],
+        'pager' => [],
+      ],
+    ],
+  ];
+}
+
+/* ToDo: Investigate why this isn't working. */
+/**
+ * Implements hook_module_preuninstall().
+ *
+ * @throws \Drupal\Core\Entity\EntityStorageException
+ */
+function userlisting_module_preuninstall() {
+  // Get the entity type manager service.
+  $entityTypeManager = \Drupal::entityTypeManager();
+
+  // Check if the dummy_user entity type exists.
+  if ($entityTypeManager->hasDefinition('dummyuser')) {
+    // Get the storage for the dummy_user entity.
+    $storage = $entityTypeManager->getStorage('dummyuser');
+
+    // Load and delete all dummy users.
+    $query = $storage->getQuery()->accessCheck(TRUE);
+    $ids = $query->execute();
+    $storage->delete($storage->loadMultiple($ids));
+  }
+}
+

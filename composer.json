@@ -1,0 +1,14 @@
+{
+    "name": "drupal/userlisting",
+    "description": "Provides a block listing users from a third-party service.",
+    "type": "drupal-module",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "composer/installers": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Drupal\\userlisting\\": "src/"
+        }
+    }
+}

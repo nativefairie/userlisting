@@ -1,0 +1,5 @@
+userlist:
+  version: 1.x
+  css:
+    theme:
+      css/userlist.css: {}

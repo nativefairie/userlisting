@@ -1,0 +1,7 @@
+name: 'User List'
+type: module
+description: 'Provides a block listing users from a third-party service.'
+core_version_requirement: ^9 || ^10
+package: Custom
+dependencies:
+  - drupal:block

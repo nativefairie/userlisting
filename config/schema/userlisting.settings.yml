@@ -1,0 +1,21 @@
+# Schema for the config of the user listing block.
+userlist.settings:
+  type: block_settings
+  label: 'User List settings'
+  mapping:
+    labels:
+      type: mapping
+      label: 'Labels for user fields'
+      mapping:
+        email:
+          type: string
+          label: 'Email Label'
+        first_name:
+          type: string
+          label: 'First Name Label'
+        last_name:
+          type: string
+          label: 'Last Name Label'
+    per_page:
+      type: integer
+      label: 'Items Per Page'
