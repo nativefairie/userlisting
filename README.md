@@ -22,7 +22,7 @@ This contains a Drupal module that integrates with a third-party API to fetch an
 
 1. Install this in a fully functional Drupal environment using composer:
 
-       $composer require drupal/userlisting
+       $composer require nativefairie/userlisting
 2. Enable the module:
 
        $drush en userlisting
